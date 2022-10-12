@@ -33,7 +33,7 @@ Node.js > 15 or any modern browser
 ## Getting started
 
 ```js
-import Kopeechka from '@sadzurami/kopeechka-store-js'
+import Kopeechka from '@sadzurami/kopeechka-store'
 
 const kop = new Kopeechka('<personal access token>')
 
