@@ -1,0 +1,56 @@
+{
+  "name": "@sadzurami/kopeechka-store",
+  "version": "1.0.0",
+  "description": "A JavaScript wrapper around the [kopeechka.store](https://faq.kopeechka.store/api_page/) api.",
+  "main": "dist/kopeechka.js",
+  "module": "dist/kopeechka.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/kopeechka.mjs",
+      "require": "./dist/kopeechka.js"
+    }
+  },
+  "scripts": {
+    "build": "rimraf dist && rollup --config && rimraf *.d.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sadzurami/kopeechka-store.git"
+  },
+  "keywords": [
+    "email",
+    "temp-mail",
+    "kopeechka",
+    "kopeechka-store"
+  ],
+  "files": [
+    "README.md",
+    "dist"
+  ],
+  "author": "Sadzurami",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Sadzurami/kopeechka-store/issues"
+  },
+  "homepage": "https://github.com/Sadzurami/kopeechka-store#readme",
+  "dependencies": {
+    "node-fetch": "2.6.2"
+  },
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^8.5.0",
+    "@types/node-fetch": "^2.6.2",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "eslint": "^8.0.1",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-standard-with-typescript": "^23.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "prettier": "^2.7.1",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.79.1",
+    "rollup-plugin-uglify": "^6.0.4",
+    "typescript": "*"
+  }
+}
