@@ -24,6 +24,10 @@ yarn add @sadzurami/kopeechka-store
 <script src="https://cdn.jsdelivr.net/gh/Sadzurami/kopeechka-store@latest/kopeechka.min.js"></script>
 ```
 
+# Requirements
+
+Node.js > 15 or any modern browser
+
 # Documentation
 
 ## Getting started
