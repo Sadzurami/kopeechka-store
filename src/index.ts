@@ -86,15 +86,19 @@ class Kopeechka {
   public async getMessage(
     options: type.IGetMessageOptions = {}
   ): type.MessageResult {
-    const { timeout = 120000, delay = 10000 } = options
+    const { timeout = 120000, delay = 10000, full=0 } = options
 
-    const params = { id: options.id ?? this.id, full: 1 }
+    const params = { id: options.id ?? this.id, full: full }
     const timings = { timeout, delay }
 
     const res = await this.waitMessage(params, timings)
     if (!res.success) throw new KopeechkaError(res.message)
 
-    return res.data.fullmessage
+    if(full===1) {
+      return res.data.fullmessage
+    }else{
+      return res.data.value
+    }
   }
 
   private async waitMessage(

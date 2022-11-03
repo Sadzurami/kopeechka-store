@@ -96,13 +96,18 @@ class Kopeechka {
     /** Retrieves the message resource. */
     async getMessage(options = {}) {
         var _a;
-        const { timeout = 120000, delay = 10000 } = options;
-        const params = { id: (_a = options.id) !== null && _a !== void 0 ? _a : this.id, full: 1 };
+        const { timeout = 120000, delay = 10000, full = 0 } = options;
+        const params = { id: (_a = options.id) !== null && _a !== void 0 ? _a : this.id, full: full };
         const timings = { timeout, delay };
         const res = await this.waitMessage(params, timings);
         if (!res.success)
             throw new KopeechkaError(res.message);
-        return res.data.fullmessage;
+        if (full === 1) {
+            return res.data.fullmessage;
+        }
+        else {
+            return res.data.value;
+        }
     }
     async waitMessage(params, timings) {
         let { start = 0, end = 0, delay, timeout } = timings;

@@ -59,6 +59,10 @@ export interface IGetMessageOptions {
      * Delay between requests in ms.
      */
     delay?: number;
+    /**
+     * 1 For getting full email and 0 for getting only the verification link
+     */
+    full?: number;
 }
 /** getDomains() */
 export declare type DomainsResult = Promise<IDomainResponse[]>;
