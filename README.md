@@ -132,13 +132,15 @@ Options may contain the following fields:
 - **id** (`string`) - Optional. Task id. Default - id of last ordered address on this instance, if it exists.
 - **timeout** (`number`) - Optional. Timeout of message waiting in ms. Default - 120000.
 - **delay** (`number`) - Optional. Delay between requests in ms. Default - 10000.
+- **full** (`boolean`) - Optional. Retrieves the full body of the message in any case. Specify `false` to get only the parsed part of the message, this can be useful to save bandwidth. Sometimes the server cannot parse a message, in which case the full message will be returned. It's better to get the full message and parse it on your side. Default - true.
 
 ```js
 kop
   .getMessage({
     id: '1434984329',
     timeout: 120000,
-    delay: 10000
+    delay: 10000,
+    full: false
   })
   .then(console.log)
 ```
