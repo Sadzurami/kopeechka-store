@@ -1,7 +1,7 @@
 {
   "name": "@sadzurami/kopeechka-store",
-  "version": "1.0.1",
-  "description": "A JavaScript wrapper around the [kopeechka.store](https://faq.kopeechka.store/api_page/) api.",
+  "version": "1.0.2",
+  "description": "A JavaScript wrapper around the kopeechka.store api.",
   "main": "dist/kopeechka.js",
   "module": "dist/kopeechka.mjs",
   "types": "dist/index.d.ts",
