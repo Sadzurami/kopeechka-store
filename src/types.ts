@@ -1,8 +1,8 @@
 /** getBalance() */
-export type BalanceResult = Promise<number>
+export type BalanceResult = Promise<number> | never
 
 /** getAddress() */
-export type AddressResult = Promise<string>
+export type AddressResult = Promise<string> | never
 export interface IGetAddressOptions {
   /**
    * The website for which the address is ordered.
@@ -31,7 +31,7 @@ interface IFilterMessageProperties {
 }
 
 /** reuseAddress() */
-export type ReuseAddressResult = Promise<boolean>
+export type ReuseAddressResult = Promise<boolean> | never
 export interface IReuseAddressOptions {
   /**
    * The website for which the address is ordered.
@@ -46,10 +46,10 @@ export interface IReuseAddressOptions {
 }
 
 /** releaseAddress() */
-export type ReleaseAddressResult = Promise<boolean>
+export type ReleaseAddressResult = Promise<boolean> | never
 
 /** getMessage() */
-export type MessageResult = Promise<string>
+export type MessageResult = Promise<string> | never
 export interface IGetMessageOptions {
   /**
    * Task id.
@@ -63,10 +63,17 @@ export interface IGetMessageOptions {
    * Delay between requests in ms.
    */
   delay?: number
+  /**
+   * Get the full body of the message in any case.
+   * Specify `false` to get only the parsed part of the message, this can be useful to save bandwidth.
+   * Sometimes the server cannot parse a message, in which case the full message will be returned.
+   * It's better to get the full message and parse it on your side.
+   */
+  full?: boolean
 }
 
 /** getDomains() */
-export type DomainsResult = Promise<IDomainResponse[]>
+export type DomainsResult = Promise<IDomainResponse[]> | never
 interface IDomainResponse {
   /**
    * Name of domain.
@@ -100,7 +107,7 @@ export interface IGetDomains {
 }
 
 /** getPopularDomains() */
-export type PopularDomainsResult = Promise<IPopularDomain[]>
+export type PopularDomainsResult = Promise<IPopularDomain[]> | never
 interface IPopularDomain {
   /**
    * Name of domain.
@@ -117,10 +124,10 @@ interface IPopularDomain {
 }
 
 /** getTempDomains() */
-export type TemporaryDomainsResult = Promise<string[]>
+export type TemporaryDomainsResult = Promise<string[]> | never
 
 /** findTaskId() */
-export type TaskIdResult = Promise<string>
+export type TaskIdResult = Promise<string> | never
 export interface IFindTaskIdOptions {
   /**
    * The website for which the address is ordered.
@@ -135,7 +142,7 @@ export interface IFindTaskIdOptions {
 }
 
 /** findTasks() */
-export type TasksResult = Promise<ITask[]>
+export type TasksResult = Promise<ITask[]> | never
 interface ITask {
   /**
    * Task comment.
@@ -193,7 +200,7 @@ export interface IFindTasksOptions {
 }
 
 /** send() */
-export type ApiResponse = Promise<IApiResponse>
+export type ApiResponse = Promise<IApiResponse> | never
 interface IApiResponse {
   /**
    * Request status.

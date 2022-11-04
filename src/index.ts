@@ -88,13 +88,18 @@ class Kopeechka {
   ): type.MessageResult {
     const { timeout = 120000, delay = 10000 } = options
 
-    const params = { id: options.id ?? this.id, full: 1 }
+    const params = {
+      id: options.id ?? this.id,
+      full: options.full === false ? 0 : 1
+    }
     const timings = { timeout, delay }
 
     const res = await this.waitMessage(params, timings)
     if (!res.success) throw new KopeechkaError(res.message)
 
-    return res.data.fullmessage
+    return options.full === false && res.data.value?.length > 0
+      ? res.data.value
+      : res.data.fullmessage
   }
 
   private async waitMessage(
